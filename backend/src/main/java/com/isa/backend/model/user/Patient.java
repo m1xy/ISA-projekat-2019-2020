@@ -1,9 +1,19 @@
 package com.isa.backend.model.user;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import com.isa.backend.model.report.ZdravstveniKarton;
 
-public class Pacijent {
-	
+@Entity
+public class Patient {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
 	private String username;
 	private String password;
 
@@ -14,15 +24,15 @@ public class Pacijent {
 	private String drzava;
 	private String brojTelefona;
 	private String brojOsiguranika;
-	
-	private ZdravstveniKarton zdravstveniKarton;
 
-	public Pacijent() {
+//	private ZdravstveniKarton zdravstveniKarton;
+
+	public Patient() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Pacijent(String username, String password, String ime, String prezime, String adresa, String grad,
+	public Patient(String username, String password, String ime, String prezime, String adresa, String grad,
 			String drzava, String brojTelefona, String brojOsiguranika, ZdravstveniKarton zdravstveniKarton) {
 		super();
 		this.username = username;
@@ -34,7 +44,7 @@ public class Pacijent {
 		this.drzava = drzava;
 		this.brojTelefona = brojTelefona;
 		this.brojOsiguranika = brojOsiguranika;
-		this.zdravstveniKarton = zdravstveniKarton;
+//		this.zdravstveniKarton = zdravstveniKarton;
 	}
 
 	public String getUsername() {
@@ -109,12 +119,12 @@ public class Pacijent {
 		this.brojOsiguranika = brojOsiguranika;
 	}
 
-	public ZdravstveniKarton getZdravstveniKarton() {
-		return zdravstveniKarton;
-	}
-
-	public void setZdravstveniKarton(ZdravstveniKarton zdravstveniKarton) {
-		this.zdravstveniKarton = zdravstveniKarton;
-	}
+//	public ZdravstveniKarton getZdravstveniKarton() {
+//		return zdravstveniKarton;
+//	}
+//
+//	public void setZdravstveniKarton(ZdravstveniKarton zdravstveniKarton) {
+//		this.zdravstveniKarton = zdravstveniKarton;
+//	}
 
 }
