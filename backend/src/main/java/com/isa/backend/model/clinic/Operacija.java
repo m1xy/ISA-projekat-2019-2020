@@ -3,7 +3,7 @@ package com.isa.backend.model.clinic;
 import java.util.ArrayList;
 
 import com.isa.backend.model.user.Lekar;
-import com.isa.backend.model.user.Patient;
+import com.isa.backend.model.user.Pacijent;
 
 public class Operacija {
 
@@ -13,14 +13,14 @@ public class Operacija {
 	private Sala sala;
 	private ArrayList<Lekar> lekari;
 
-	private Patient pacijent;
+	private Pacijent pacijent;
 
 	public Operacija() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public Operacija(String datum, String vreme, String trajanje, Sala sala, ArrayList<Lekar> lekari,
-			Patient pacijent) {
+			Pacijent pacijent) {
 		super();
 		this.datum = datum;
 		this.vreme = vreme;
@@ -70,11 +70,11 @@ public class Operacija {
 		this.lekari = lekari;
 	}
 
-	public Patient getPacijent() {
+	public Pacijent getPacijent() {
 		return pacijent;
 	}
 
-	public void setPacijent(Patient pacijent) {
+	public void setPacijent(Pacijent pacijent) {
 		this.pacijent = pacijent;
 	}
 
