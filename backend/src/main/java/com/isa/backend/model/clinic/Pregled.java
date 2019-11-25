@@ -1,7 +1,7 @@
 package com.isa.backend.model.clinic;
 
 import com.isa.backend.model.user.Lekar;
-import com.isa.backend.model.user.Pacijent;
+import com.isa.backend.model.user.Patient;
 
 public class Pregled {
 
@@ -13,14 +13,14 @@ public class Pregled {
 	private Lekar lekar;
 	private String cena;
 
-	private Pacijent pacijent;
+	private Patient pacijent;
 
 	public Pregled() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public Pregled(String datum, String vreme, TipPregleda tip, String trajanje, Sala sala, Lekar lekar, String cena,
-			Pacijent pacijent) {
+			Patient pacijent) {
 		super();
 		this.datum = datum;
 		this.vreme = vreme;
@@ -88,11 +88,11 @@ public class Pregled {
 		this.cena = cena;
 	}
 
-	public Pacijent getPacijent() {
+	public Patient getPacijent() {
 		return pacijent;
 	}
 
-	public void setPacijent(Pacijent pacijent) {
+	public void setPacijent(Patient pacijent) {
 		this.pacijent = pacijent;
 	}
 
