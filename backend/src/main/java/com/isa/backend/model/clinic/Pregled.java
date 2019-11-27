@@ -1,19 +1,44 @@
 package com.isa.backend.model.clinic;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import com.isa.backend.model.user.Lekar;
 import com.isa.backend.model.user.Patient;
 
+@Entity
 public class Pregled {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@Column(nullable = false)
 	private String datum;
+	
+	@Column(nullable = false)
 	private String vreme; // satnica
-	private TipPregleda tip;
+	
+//	@Column(nullable = false)
+//	private TipPregleda tip;
+	
+	@Column(nullable = false)
 	private String trajanje;
-	private Sala sala;
-	private Lekar lekar;
+	
+//	@Column(nullable = false)
+//	private Sala sala;
+//	
+//	@Column(nullable = false)
+//	private Lekar lekar;
+	
+	@Column(nullable = false)
 	private String cena;
 
-	private Patient pacijent;
+//@Column(nullable = false) Ako su predefinisani pregledi??
+//	private Patient pacijent;
 
 	public Pregled() {
 		// TODO Auto-generated constructor stub
@@ -24,12 +49,21 @@ public class Pregled {
 		super();
 		this.datum = datum;
 		this.vreme = vreme;
-		this.tip = tip;
+//		this.tip = tip;
 		this.trajanje = trajanje;
-		this.sala = sala;
-		this.lekar = lekar;
+//		this.sala = sala;
+//		this.lekar = lekar;
 		this.cena = cena;
-		this.pacijent = pacijent;
+	//	this.pacijent = pacijent;
+	}
+
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getDatum() {
@@ -48,13 +82,13 @@ public class Pregled {
 		this.vreme = vreme;
 	}
 
-	public TipPregleda getTip() {
-		return tip;
-	}
-
-	public void setTip(TipPregleda tip) {
-		this.tip = tip;
-	}
+//	public TipPregleda getTip() {
+//		return tip;
+//	}
+//
+//	public void setTip(TipPregleda tip) {
+//		this.tip = tip;
+//	}
 
 	public String getTrajanje() {
 		return trajanje;
@@ -64,21 +98,21 @@ public class Pregled {
 		this.trajanje = trajanje;
 	}
 
-	public Sala getSala() {
-		return sala;
-	}
-
-	public void setSala(Sala sala) {
-		this.sala = sala;
-	}
-
-	public Lekar getLekar() {
-		return lekar;
-	}
-
-	public void setLekar(Lekar lekar) {
-		this.lekar = lekar;
-	}
+//	public Sala getSala() {
+//		return sala;
+//	}
+//
+//	public void setSala(Sala sala) {
+//		this.sala = sala;
+//	}
+//
+//	public Lekar getLekar() {
+//		return lekar;
+//	}
+//
+//	public void setLekar(Lekar lekar) {
+//		this.lekar = lekar;
+//	}
 
 	public String getCena() {
 		return cena;
@@ -88,12 +122,12 @@ public class Pregled {
 		this.cena = cena;
 	}
 
-	public Patient getPacijent() {
-		return pacijent;
-	}
-
-	public void setPacijent(Patient pacijent) {
-		this.pacijent = pacijent;
-	}
+//	public Patient getPacijent() {
+//		return pacijent;
+//	}
+//
+//	public void setPacijent(Patient pacijent) {
+//		this.pacijent = pacijent;
+//	}
 
 }

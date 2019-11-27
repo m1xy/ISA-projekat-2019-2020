@@ -1,23 +1,52 @@
 package com.isa.backend.model.clinic;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import java.util.ArrayList;
 
 import com.isa.backend.model.user.AdministratorKlinike;
 import com.isa.backend.model.user.Lekar;
 
+@Entity
 public class Klinika {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@Column(unique = true, nullable = false)
 	private String naziv;
+	@Column(unique = true, nullable = false)
 	private String adresa; // mapa
+	
 	private String opis;
+	
+	@Column(nullable = false)
 	private ArrayList<Pregled> pregledi;
-	private ArrayList<Lekar> lekari;
-	private ArrayList<Sala> sale;
+//	
+//	@Column(nullable = false)
+//	private ArrayList<Lekar> lekari;
+//	
+//	@Column(nullable = false)
+//	private ArrayList<Sala> sale;
+//	
+//	@Column(nullable = false)
+//	private ArrayList<AdministratorKlinike> administratoriKlinike;
+	
+	
+	@Column(nullable = false)
 	private ArrayList<String> cene; // ?map
 
-	private ArrayList<AdministratorKlinike> administratoriKlinike;
+	
 	private double ocena;
 
+	//Medicinsko osoblje lekari i medicinske sestre mogu biti zaposleni samo na jednoj klinici
+	//Jedna klinika moze da ima vise administratora, a jedan isti administrator moze biti administrator samo jedne klinike.
+	
 	public Klinika() {
 		// TODO Auto-generated constructor stub
 	}
@@ -30,11 +59,20 @@ public class Klinika {
 		this.adresa = adresa;
 		this.opis = opis;
 		this.pregledi = pregledi;
-		this.lekari = lekari;
-		this.sale = sale;
+//		this.lekari = lekari;
+//		this.sale = sale;
 		this.cene = cene;
-		this.administratoriKlinike = administratoriKlinike;
+//		this.administratoriKlinike = administratoriKlinike;
 		this.ocena = ocena;
+	}
+	
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getNaziv() {
@@ -69,21 +107,21 @@ public class Klinika {
 		this.pregledi = pregledi;
 	}
 
-	public ArrayList<Lekar> getLekari() {
-		return lekari;
-	}
-
-	public void setLekari(ArrayList<Lekar> lekari) {
-		this.lekari = lekari;
-	}
-
-	public ArrayList<Sala> getSale() {
-		return sale;
-	}
-
-	public void setSale(ArrayList<Sala> sale) {
-		this.sale = sale;
-	}
+//	public ArrayList<Lekar> getLekari() {
+//		return lekari;
+//	}
+//
+//	public void setLekari(ArrayList<Lekar> lekari) {
+//		this.lekari = lekari;
+//	}
+//
+//	public ArrayList<Sala> getSale() {
+//		return sale;
+//	}
+//
+//	public void setSale(ArrayList<Sala> sale) {
+//		this.sale = sale;
+//	}
 
 	public ArrayList<String> getCene() {
 		return cene;
@@ -93,13 +131,13 @@ public class Klinika {
 		this.cene = cene;
 	}
 
-	public ArrayList<AdministratorKlinike> getAdministratoriKlinike() {
-		return administratoriKlinike;
-	}
-
-	public void setAdministratoriKlinike(ArrayList<AdministratorKlinike> administratoriKlinike) {
-		this.administratoriKlinike = administratoriKlinike;
-	}
+//	public ArrayList<AdministratorKlinike> getAdministratoriKlinike() {
+//		return administratoriKlinike;
+//	}
+//
+//	public void setAdministratoriKlinike(ArrayList<AdministratorKlinike> administratoriKlinike) {
+//		this.administratoriKlinike = administratoriKlinike;
+//	}
 
 	public double getOcena() {
 		return ocena;

@@ -1,17 +1,37 @@
 package com.isa.backend.model.user;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import com.isa.backend.model.clinic.Klinika;
 
+@Entity
 public class MedicinskaSestra {
 
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id; 
+
+	@Column(unique = true, nullable = false)
 	private String username;
+	@Column(unique = true, nullable = false)
 	private String password;
 
+	@Column(nullable = false)
 	private String ime;
+	
+	@Column(nullable = false)
 	private String prezime;
 
-	private Klinika klinika;
+//	@Column(nullable = false)
+//	private Klinika klinika;
 
+	
+	//Medicinsko osoblje lekari i medicinske sestre mogu biti zaposleni samo na jednoj klinici
 	public MedicinskaSestra() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -23,7 +43,15 @@ public class MedicinskaSestra {
 		this.password = password;
 		this.ime = ime;
 		this.prezime = prezime;
-		this.klinika = klinika;
+//		this.klinika = klinika;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getUsername() {
@@ -58,12 +86,12 @@ public class MedicinskaSestra {
 		this.prezime = prezime;
 	}
 
-	public Klinika getKlinika() {
-		return klinika;
-	}
-
-	public void setKlinika(Klinika klinika) {
-		this.klinika = klinika;
-	}
+//	public Klinika getKlinika() {
+//		return klinika;
+//	}
+//
+//	public void setKlinika(Klinika klinika) {
+//		this.klinika = klinika;
+//	}
 
 }
