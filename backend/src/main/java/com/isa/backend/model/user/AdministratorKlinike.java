@@ -1,14 +1,31 @@
 package com.isa.backend.model.user;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import com.isa.backend.model.clinic.Klinika;
 
+@Entity
 public class AdministratorKlinike {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id; 
+
+	@Column(unique = true, nullable = false)
 	private String username;
+	
+	@Column(unique = true, nullable = false)
 	private String password;
 
-	private Klinika klinika; // klinika kojoj pripada
+//	@Column(nullable = false)
+//	private Klinika klinika; // klinika kojoj pripada
 
+	//Jedna klinika moze da ima vise administratora, a jedan isti administrator moze biti administrator samo jedne klinike.
+	
 	public AdministratorKlinike() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -18,7 +35,17 @@ public class AdministratorKlinike {
 		super();
 		this.username = username;
 		this.password = password;
-		this.klinika = klinika;
+		//this.klinika = klinika;
+	}
+
+	
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getUsername() {
@@ -37,12 +64,12 @@ public class AdministratorKlinike {
 		this.password = password;
 	}
 
-	public Klinika getKlinika() {
-		return klinika;
-	}
-
-	public void setKlinika(Klinika klinika) {
-		this.klinika = klinika;
-	}
+//	public Klinika getKlinika() {
+//		return klinika;
+//	}
+//
+//	public void setKlinika(Klinika klinika) {
+//		this.klinika = klinika;
+//	}
 
 }

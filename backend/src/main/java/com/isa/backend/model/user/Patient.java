@@ -1,5 +1,6 @@
 package com.isa.backend.model.user;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,18 +12,35 @@ import com.isa.backend.model.report.ZdravstveniKarton;
 public class Patient {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY) //baza generise id po redu pocev od 1;
+	private Long id; //iskoriscena klasa Long jer id moze biti null
 
+	@Column(unique = true, nullable = false)
 	private String username;
+	
+	@Column(unique = true, nullable = false)
 	private String password;
 
+	@Column(nullable = false)
 	private String ime;
+	
+	@Column(nullable = false)
 	private String prezime;
+	
+	@Column(nullable = false)
 	private String adresa;
+	
+	@Column(nullable = false)
 	private String grad;
+	
+	@Column(nullable = false)
 	private String drzava;
+	
+	//	@Column(nullable = false) ??
 	private String brojTelefona;
+	
+	//email? treba?
+	@Column(unique = true, nullable = false)
 	private String brojOsiguranika;
 
 //	private ZdravstveniKarton zdravstveniKarton;
@@ -33,7 +51,7 @@ public class Patient {
 	}
 
 	public Patient(String username, String password, String ime, String prezime, String adresa, String grad,
-			String drzava, String brojTelefona, String brojOsiguranika, ZdravstveniKarton zdravstveniKarton) {
+			String drzava, String brojTelefona, String brojOsiguranika/*, ZdravstveniKarton zdravstveniKarton*/) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -45,6 +63,14 @@ public class Patient {
 		this.brojTelefona = brojTelefona;
 		this.brojOsiguranika = brojOsiguranika;
 //		this.zdravstveniKarton = zdravstveniKarton;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getUsername() {

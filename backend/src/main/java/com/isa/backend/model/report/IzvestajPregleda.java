@@ -1,10 +1,21 @@
 package com.isa.backend.model.report;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import java.util.ArrayList;
 
+@Entity
 public class IzvestajPregleda {
-
-	private Dijagnoza dijagnoza;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	//private Dijagnoza dijagnoza;
 	private ArrayList<Recept> recepti;
 
 	public IzvestajPregleda() {
@@ -13,16 +24,26 @@ public class IzvestajPregleda {
 
 	public IzvestajPregleda(Dijagnoza dijagnoza, ArrayList<Recept> recepti) {
 		super();
-		this.dijagnoza = dijagnoza;
+		//this.dijagnoza = dijagnoza;
 		this.recepti = recepti;
 	}
+	
+	
 
-	public Dijagnoza getDijagnoza() {
-		return dijagnoza;
+//	public Dijagnoza getDijagnoza() {
+//		return dijagnoza;
+//	}
+
+//	public void setDijagnoza(Dijagnoza dijagnoza) {
+//		this.dijagnoza = dijagnoza;
+//	}
+	
+	public Long getId() {
+		return id;
 	}
 
-	public void setDijagnoza(Dijagnoza dijagnoza) {
-		this.dijagnoza = dijagnoza;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public ArrayList<Recept> getRecepti() {
