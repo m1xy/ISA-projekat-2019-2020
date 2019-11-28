@@ -1,12 +1,11 @@
-package com.isa.backend.model.user;
+package com.isa.backend.dto;
 
-import com.isa.backend.model.report.ZdravstveniKarton;
+import com.isa.backend.model.user.Patient;
 
-public class Pacijent {
-	
+public class PatientDTO {
+	private Long id;
 	private String username;
 	private String password;
-
 	private String ime;
 	private String prezime;
 	private String adresa;
@@ -15,18 +14,19 @@ public class Pacijent {
 	private String brojTelefona;
 	private String brojOsiguranika;
 	
-	private ZdravstveniKarton zdravstveniKarton;
+	
+	public PatientDTO() {
 
-	public Pacijent() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public Pacijent(String username, String password, String ime, String prezime, String adresa, String grad,
-			String drzava, String brojTelefona, String brojOsiguranika, ZdravstveniKarton zdravstveniKarton) {
-		super();
+	public PatientDTO(Patient patient) {
+		this(patient.getId(), patient.getUsername(), patient.getPassword(), patient.getIme(), patient.getPrezime(), patient.getAdresa(), patient.getGrad(), patient.getDrzava(), patient.getBrojTelefona(), patient.getBrojOsiguranika());
+	}
+
+	public PatientDTO(Long id, String username, String password, String ime, String prezime, String adresa, String grad, String drzava, String brojTelefona, String brojOsiguranika) {
+		this.id = id;
 		this.username = username;
-		this.password = password;
+		this.password =  password;
 		this.ime = ime;
 		this.prezime = prezime;
 		this.adresa = adresa;
@@ -34,7 +34,15 @@ public class Pacijent {
 		this.drzava = drzava;
 		this.brojTelefona = brojTelefona;
 		this.brojOsiguranika = brojOsiguranika;
-		this.zdravstveniKarton = zdravstveniKarton;
+
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getUsername() {
@@ -109,12 +117,5 @@ public class Pacijent {
 		this.brojOsiguranika = brojOsiguranika;
 	}
 
-	public ZdravstveniKarton getZdravstveniKarton() {
-		return zdravstveniKarton;
-	}
-
-	public void setZdravstveniKarton(ZdravstveniKarton zdravstveniKarton) {
-		this.zdravstveniKarton = zdravstveniKarton;
-	}
-
+	
 }

@@ -2,32 +2,63 @@ package com.isa.backend.model.clinic;
 
 import java.util.ArrayList;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import com.isa.backend.model.user.Lekar;
-import com.isa.backend.model.user.Pacijent;
+import com.isa.backend.model.user.Patient;
 
+
+@Entity
 public class Operacija {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
+	@Column(nullable = false)
 	private String datum;
+	
+	@Column(nullable = false)
 	private String vreme; // satnica
+	
+	@Column(nullable = false)
 	private String trajanje;
-	private Sala sala;
-	private ArrayList<Lekar> lekari;
-
-	private Pacijent pacijent;
+	
+//	@Column(nullable = false)
+//	private Sala sala;
+//	
+//	@Column(nullable = false)
+//	private ArrayList<Lekar> lekari;
+//
+//	//@Column(nullable = false) ??
+//	private Patient pacijent;
 
 	public Operacija() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public Operacija(String datum, String vreme, String trajanje, Sala sala, ArrayList<Lekar> lekari,
-			Pacijent pacijent) {
+			Patient pacijent) {
 		super();
 		this.datum = datum;
 		this.vreme = vreme;
 		this.trajanje = trajanje;
-		this.sala = sala;
-		this.lekari = lekari;
-		this.pacijent = pacijent;
+//		this.sala = sala;
+//		this.lekari = lekari;
+//		this.pacijent = pacijent;
+	}
+
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getDatum() {
@@ -54,28 +85,28 @@ public class Operacija {
 		this.trajanje = trajanje;
 	}
 
-	public Sala getSala() {
-		return sala;
-	}
-
-	public void setSala(Sala sala) {
-		this.sala = sala;
-	}
-
-	public ArrayList<Lekar> getLekari() {
-		return lekari;
-	}
-
-	public void setLekari(ArrayList<Lekar> lekari) {
-		this.lekari = lekari;
-	}
-
-	public Pacijent getPacijent() {
-		return pacijent;
-	}
-
-	public void setPacijent(Pacijent pacijent) {
-		this.pacijent = pacijent;
-	}
+//	public Sala getSala() {
+//		return sala;
+//	}
+//
+//	public void setSala(Sala sala) {
+//		this.sala = sala;
+//	}
+//
+//	public ArrayList<Lekar> getLekari() {
+//		return lekari;
+//	}
+//
+//	public void setLekari(ArrayList<Lekar> lekari) {
+//		this.lekari = lekari;
+//	}
+//
+//	public Patient getPacijent() {
+//		return pacijent;
+//	}
+//
+//	public void setPacijent(Patient pacijent) {
+//		this.pacijent = pacijent;
+//	}
 
 }
